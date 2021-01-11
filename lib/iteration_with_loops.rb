@@ -1,18 +1,21 @@
+require "pry"
 
 def join_nested_strings(src)
-  counter = 0
-  total_array = []
-  while counter < src.length do
-    inner_counter = 0
-    val =  nil
-    while inner_counter < src[counter].length do
-      val = src[counter][inner_counter]
-      if val.is_a? String
-        total_array.push(val)
-      end  
-      inner_counter += 1
-    end
-    counter += 1
-  end
- total_array.join(' ')
+  [["The", 4, "quick"], [-1, "brown", "fox", 30], ["studied", 101, 233, "Ruby"]]
+  counter_a = 0
+  final_array = []
+  while counter_a < src.length
+    counter_b = 0
+    while counter_b < src[counter_a].length
+        element = src[counter_a][counter_b]
+        # check if the element is a string
+        if element.class == String
+          final_array << element
+        end 
+        # if it is a string, make one big string from each substring
+        counter_b += 1
+    end 
+    counter_a += 1
+  end 
+  final_array.join(' ')
 end
